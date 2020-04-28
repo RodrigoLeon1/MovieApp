@@ -18,7 +18,7 @@ const MovieCard = ({ id, title, overview, poster }) => {
         <CardActionArea>
           <CardMedia
             component="img"
-            alt="{title}"
+            alt={title}
             height="300"
             image={posterPath}
             title={title}

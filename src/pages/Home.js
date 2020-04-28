@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import HeadingLayout from "../layout/HeadingLayout";
-import MovieList from "../components/MovieList";
-
 import { fetchUpcomingMovies } from "../api/api";
+
+import MovieList from "../components/MovieList";
+import HeadingLayout from "../layout/HeadingLayout";
 import HeroLayout from "../layout/HeroLayout";
 import FooterLayout from "../layout/FooterLayout";
 

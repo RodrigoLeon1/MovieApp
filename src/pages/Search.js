@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import FooterLayout from "../layout/FooterLayout";
 import Navbar from "../components/Navbar";
 import HeadingLayout from "../layout/HeadingLayout";
 
-//
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
+import { fetchMovieByQuery } from "../api/api";
+import MovieList from "../components/MovieList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,16 +34,32 @@ const useStyles = makeStyles((theme) => ({
 const Search = () => {
   const classes = useStyles();
 
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  const _handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const _handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetchMovieByQuery(query).then((data) => {
+      setMovies(data.results);
+    });
+  };
+
   return (
-    <div>
+    <>
       <Navbar />
       <div className="search-container">
-        <form>
+        <form onSubmit={_handleSubmit}>
           <HeadingLayout title="Search" color="white" />
           <Paper component="form" className={classes.root}>
             <InputBase
               className={classes.input}
               placeholder="Search movies"
+              onChange={_handleChange}
               inputProps={{ "aria-label": "search movies" }}
             />
             <IconButton
@@ -55,8 +72,18 @@ const Search = () => {
           </Paper>
         </form>
       </div>
+      {Object.keys(movies).length ? (
+        <div style={{ marginTop: "2em" }}>
+          <section className="section-container">
+            <HeadingLayout title="Top movies" />
+            <MovieList movies={movies} />
+          </section>
+        </div>
+      ) : (
+        ""
+      )}
       <FooterLayout />
-    </div>
+    </>
   );
 };
 

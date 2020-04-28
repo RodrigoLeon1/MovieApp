@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { fetchMovieById, fetchMovieVideosById } from "../api/api";
 import ReactPlayer from "react-player";
+
 import Navbar from "../components/Navbar";
 import MovieDetailSection from "../components/MovieDetailSection";
 import Genres from "../components/Genres";
 import FooterLayout from "../layout/FooterLayout";
-import StarHalfIcon from "@material-ui/icons/StarHalf";
 import HeadingLayout from "../layout/HeadingLayout";
+import StarHalfIcon from "@material-ui/icons/StarHalf";
 
 const MovieDetail = (props) => {
   const [movie, setMovie] = useState({});
@@ -22,7 +23,6 @@ const MovieDetail = (props) => {
       setMovie(data);
       setGenres(data.genres);
     });
-    // fetchMovieById(id).then((data) => console.log(data));
   }, [id]);
 
   useEffect(() => {
@@ -77,6 +77,7 @@ const MovieDetail = (props) => {
         <div className="video-container">
           <HeadingLayout title="Play Video" color="white" />
           <div>
+            {}
             <ReactPlayer
               url={urlVideo}
               playing={false}

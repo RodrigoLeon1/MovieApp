@@ -2,14 +2,14 @@ import React from "react";
 
 import LinearScaleIcon from "@material-ui/icons/LinearScale";
 
-const MovieDetailSection = (props) => (
+const MovieDetailSection = ({ section, info }) => (
   <>
     <div className="detail-section">
       <LinearScaleIcon />
-      <div>{props.section}</div>
+      <div>{section}</div>
     </div>
     <div className="detail-content">
-      <p>{props.info}</p>
+      <p>{info}</p>
     </div>
   </>
 );
