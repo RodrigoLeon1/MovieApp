@@ -1,38 +1,245 @@
-.App {
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* Utils */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+span {
+  color: #fe0056;
+}
+
+.btn {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.title {
+  margin: 0 auto;
   text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0.1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hr-primary {
+  border: none;
+  border: 1px solid #fe0056;
+  background-color: #fe0056;
+  width: 10%;
+  margin: 0 auto;
+  margin-bottom: 4em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Navbar */
+.navbar-container {
+  color: #ffffff;
+  background-color: #202020;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #181818;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 0.1em solid #fe0056;
+}
+
+.navbar-items > div {
+  margin: 1em;
+}
+
+.nav-active {
+  color: #c20041;
+}
+
+/* Hero */
+.hero-container {
+  height: 70vh;
+  color: #ffffff;
+  background-color: #202020;
+  display: grid;
+  grid-template-areas:
+    "grid1 grid1 . . ."
+    "grid3 grid3 grid4 grid4 grid4";
+  margin-bottom: 5em;
+}
+
+.grid1 {
+  grid-area: grid1;
+  font-size: 4.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 2em solid #fe0056;
+}
+
+.grid3 {
+  grid-area: grid3;
+}
+
+.grid4 {
+  grid-area: grid4;
+  background-color: #fe0056;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Section */
+.section-container {
+  max-width: 90%;
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+
+/* Movie detail */
+.detail-hero {
+  height: 40vh;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #414141;
+  box-shadow: 0px 2px 3px 0px rgba(56, 56, 56, 0.75);
+}
+
+.detail-hero > h3 {
+  font-size: 3rem;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-shadow: 2px 1px 7px rgba(0, 0, 25, 1);
+}
+
+.detail-container {
+  padding: 5em;
+  min-height: 60vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.detail-picture > img {
+  width: 70%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px,
+    rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+}
+
+.detail-picture > div {
+  font-size: 2rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 28%;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detail-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.detail-section > div {
+  color: #c20041;
+}
+
+.detail-content {
+  margin: 2em;
+}
+
+.video-container {
+  background-color: #181818;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 8em;
+  clip-path: polygon(
+    50% 7%,
+    50% 7%,
+    100% 0,
+    100% 100%,
+    100% 100%,
+    0 100%,
+    0 100%,
+    0 0
+  );
 }
 
-.App-link {
-  color: #61dafb;
+/* Search  */
+.search-container {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 80vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer */
+.footer-container {
+  background-color: #202020;
+  font-size: 0.5rem;
+  font-weight: 200;
+  padding: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+/* 404 - Not found */
+.not-found-container {
+  height: 100vh;
+  background-color: #202020;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-container h1 {
+  font-size: 5rem;
+  border-bottom: 0.1em solid #fe0056;
+  padding: 0.5rem;
+  margin-bottom: 0.3em;
+}
+
+.not-found-container h2 {
+  text-transform: uppercase;
+  margin-bottom: 0.8em;
 }
